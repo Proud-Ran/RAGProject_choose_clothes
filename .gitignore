@@ -1,0 +1,72 @@
+# ============================================================
+#  RAGProject_choose_clothes 项目 .gitignore
+#  作用：告诉 Git 哪些文件「不要上传到 GitHub」
+#  规则：凡是你电脑上独有的（密钥 / 环境 / 缓存），都不上传
+# ============================================================
+
+
+# ===== 1. 密钥与凭证 —— 最高优先级，绝对不能上传 =====
+# 里面是 DeepSeek / Tavily / LangSmith / MIMO / DashScope 的真实 API Key
+# 一旦上传，别人可以直接盗刷你的额度
+.env
+.env.*
+!.env.example          # 例外：脱敏示例文件要传，方便别人知道缺哪些变量
+*.key
+*.pem
+*.p12
+secrets.json
+credentials.json
+service-account*.json
+api_key.txt
+apikey.txt
+
+
+# ===== 2. 虚拟环境 —— 好几百 MB，上传等于灾难 =====
+# 别人用 uv sync 或 pip install 自己装即可
+.venv/
+venv/
+env/
+ENV/
+*.egg-info/
+
+
+# ===== 3. Python 编译缓存 =====
+# 每次运行自动生成，没有任何保留价值
+__pycache__/
+*.py[cod]
+*.so
+build/
+dist/
+.eggs/
+
+
+# ===== 4. IDE 个人配置 =====
+# 每个人的 PyCharm 设置不同，传上去只会互相干扰
+.idea/
+.vscode/
+*.swp
+*.swo
+
+
+# ===== 5. 运行数据与业务数据 =====
+# 聊天记录 / 向量库 / 上传的文档，属于个人数据，不该上传
+chat_history/
+chroma_db/
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+
+# ===== 6. 日志与临时文件 =====
+*.log
+*.tmp
+*.temp
+logs/
+
+
+# ===== 7. 系统文件 =====
+# Windows / macOS 自动生成的垃圾文件
+.DS_Store
+Thumbs.db
+desktop.ini
