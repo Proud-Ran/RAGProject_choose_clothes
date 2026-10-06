@@ -30,3 +30,11 @@ chat_model_name = "mimo-v2.6-flash"                 # 模型的名字（字符�
 chat_api_key = os.getenv("MIMO_API_KEY")            # 模型的 API 密钥
 chat_base_url = "https://api.xiaomimimo.com/v1"     # 模型的接口地址
 
+
+
+# 会话配置
+session_config = {
+        "configurable": {
+            "session_id": "user_001",
+        }
+    }
